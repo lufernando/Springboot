@@ -40,10 +40,10 @@ public class TestAPI {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public String inserir(@RequestBody PessoaDTO dto) {
+	public void inserir(@RequestBody PessoaDTO dto) {
 		pessoaBusiness.inserir(dto);
-		System.out.println(dto);
-		return "Pessoa inserida!!";
+		System.out.println(dto.getNome());
+		//return "Pessoa inserida!!";
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT)

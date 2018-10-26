@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.com.cast.castapiexemplo.dto.EnderecoDTO;
+
 @Entity
 @Table(name = "pessoa", schema = "manterpessoa")
 public class Pessoa {
@@ -49,8 +51,21 @@ public class Pessoa {
 		return endereco;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+	public void setEndereco(Endereco enderecoDTO) {
+		this.endereco = enderecoDTO;
+	}
+
+	public Endereco fromDTO(EnderecoDTO dto) {
+		Endereco e = new Endereco();
+		e.setBairro(dto.getBairro());
+		e.setCep(dto.getCep());
+		e.setCidade(dto.getCidade());
+		e.setComplemento(dto.getComplemento());
+		e.setLogradouro(dto.getLogradouro());
+		e.setNumero(dto.getNumero());
+		e.setUf(dto.getUf());
+		
+		return e;
 	}
 	
 	

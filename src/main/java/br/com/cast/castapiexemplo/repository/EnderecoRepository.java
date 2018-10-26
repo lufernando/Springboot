@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
@@ -23,8 +24,25 @@ public class EnderecoRepository {
 			  + "FROM Endereco e").getResultList();
 	}
 	
-	public Endereco buscarPorCep(String cep) {
+	public Endereco buscarPorId(Integer id) {
+		return entityManager.find(Endereco.class, id);
+	}
+	
+	/*public Endereco buscarPorCep(String cep) {
 		return entityManager.find(Endereco.class, cep);
+	}*/
+	
+	public Endereco buscarPorCep(String cep) {
+
+		StringBuilder jpql = new StringBuilder();
+
+		jpql.append("FROM ").append(Endereco.class.getName()).append(" WHERE cep = (:cep)");
+
+		Query query = entityManager.createQuery(jpql.toString());
+
+		query.setParameter("cep", cep);
+
+		return (Endereco) query.getSingleResult();
 	}
 	
 	/*@SuppressWarnings("unchecked")

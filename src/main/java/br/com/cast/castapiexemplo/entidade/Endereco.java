@@ -1,7 +1,10 @@
 package br.com.cast.castapiexemplo.entidade;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -9,6 +12,8 @@ import javax.persistence.Table;
 public class Endereco {
 	
 	@Id
+	@SequenceGenerator(sequenceName = "manterpessoa.endereco_id_seq", name = "gerador_end_seq", allocationSize = 1, schema = "manterpessoa")
+	@GeneratedValue(generator = "gerador_end_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
 	private String cep;
 	private String logradouro;

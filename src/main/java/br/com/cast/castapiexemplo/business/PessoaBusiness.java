@@ -62,6 +62,7 @@ public class PessoaBusiness {
 		
 		Endereco endereco = pessoa.getEndereco();
 		EnderecoDTO enderecoDTO = new EnderecoDTO();
+			endereco.setId(endereco.getId());
 			enderecoDTO.setBairro(endereco.getBairro());
 			enderecoDTO.setCep(endereco.getCep());
 			enderecoDTO.setCidade(endereco.getCidade());
@@ -83,6 +84,7 @@ public class PessoaBusiness {
 		
 		Endereco endereco = enderecoRepository.buscarPorCep(dto.getEnderecoDTO().getCep());
 		
+		//pessoa.setEndereco(pessoa.fromDTO(dto.getEnderecoDTO()));
 		pessoa.setEndereco(endereco);
 		
 		pessoaRepositorio.inserir(pessoa);
@@ -96,7 +98,7 @@ public class PessoaBusiness {
 		pessoa.setEmail(pessoaDTO.getEmail());
 		pessoa.setNome(pessoaDTO.getNome());
 
-		Endereco endereco = enderecoRepository.buscarPorCep(pessoaDTO.getEnderecoDTO().getCep());
+		Endereco endereco = enderecoRepository.buscarPorId(pessoaDTO.getEnderecoDTO().getId());
 		pessoa.setEndereco(endereco);
 
 		pessoaRepositorio.alterar(pessoa);
