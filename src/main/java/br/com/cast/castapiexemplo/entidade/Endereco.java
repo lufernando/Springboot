@@ -11,10 +11,10 @@ import javax.persistence.Table;
 @Table(name = "endereco", schema = "manterpessoa")
 public class Endereco {
 	
-	@Id
 	@SequenceGenerator(sequenceName = "manterpessoa.endereco_id_seq", name = "gerador_end_seq", allocationSize = 1, schema = "manterpessoa")
 	@GeneratedValue(generator = "gerador_end_seq", strategy = GenerationType.SEQUENCE)
 	private Integer id;
+	@Id
 	private String cep;
 	private String logradouro;
 	private String numero;

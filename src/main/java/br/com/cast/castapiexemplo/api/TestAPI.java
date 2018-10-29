@@ -54,10 +54,9 @@ public class TestAPI {
 	}
 	
 	@RequestMapping(path="/deletar/{cpf}", method=RequestMethod.DELETE)
-	public String deletar(@PathVariable("cpf") String cpf) {
+	public void deletar(@PathVariable("cpf") String cpf) {
 		pessoaBusiness.excluir(cpf);
 		System.out.println("Parametros passados para deletar: " + cpf);
-		return "Esse metodo exclui em!!";
 	}
 	
 	
