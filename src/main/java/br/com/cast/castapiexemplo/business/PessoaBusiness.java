@@ -30,6 +30,7 @@ public class PessoaBusiness {
 			pessoaDTO.setCpf(pessoa.getCpf());
 			pessoaDTO.setEmail(pessoa.getEmail());
 			pessoaDTO.setNome(pessoa.getNome());
+			pessoaDTO.setCep(pessoa.getEndereco().getCep());
 			
 			Endereco endereco = pessoa.getEndereco();
 			EnderecoDTO enderecoDTO = new EnderecoDTO();

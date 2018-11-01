@@ -19,7 +19,7 @@ public class Pessoa {
 	private String nome;
 	private String email;
 	
-	@ManyToOne(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "id_endereco")
 	private Endereco endereco;
 

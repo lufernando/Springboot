@@ -5,6 +5,15 @@ public class PessoaDTO {
 	private String cpf;
 	private String nome;
 	private String email;
+	private String cep;
+	public String getCep() {
+		return cep;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
 	private EnderecoDTO enderecoDTO;
 
 	public String getCpf() {
